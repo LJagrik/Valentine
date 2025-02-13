@@ -8,6 +8,7 @@ const smileyArray = ["🥰🌹", "💌", "🌷🌹", "🌹", "🥰", "💕", "�
 let heartRainInterval;
 let heartRainActive = false;
 let smileyInterval;
+let smileys = [];  // Array to store all smiley elements
 
 function placeNoButton() {
     let x, y;
@@ -71,6 +72,12 @@ yesBtn.addEventListener("click", () => {
     // Trigger confetti animation
     createConfetti();
 
+    // Remove all previous smileys
+    smileys.forEach(smiley => {
+        smiley.remove();
+    });
+    smileys = [];  // Reset the smiley array
+
     function createSmiley() {
         const newSmiley = document.createElement("div");
         const randomSmiley = smileyArray[Math.floor(Math.random() * smileyArray.length)];
@@ -87,6 +94,7 @@ yesBtn.addEventListener("click", () => {
         newSmiley.style.position = "absolute";
 
         document.body.appendChild(newSmiley);
+        smileys.push(newSmiley); // Store the smiley in the array
 
         // Apply fade-in class for smooth appearance
         setTimeout(() => {
