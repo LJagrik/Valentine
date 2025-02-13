@@ -28,7 +28,7 @@ const songNames = [
 let heartRainInterval;
 let heartRainActive = false;
 let smileyInterval;
-let smileys = [];  // Array to store all smiley elements
+let smileys = [];
 noSound.volume = 0.15;
 audio.volume = 0.3;
 let currentAudioIndex = 0;
@@ -102,7 +102,6 @@ yesBtn.addEventListener("click", () => {
 
     yesBtn.classList.add("rotated");
 
-    // After the animation is done, you can remove the class to reset for the next click
     setTimeout(() => {
         yesBtn.classList.remove("rotated");
     }, 1000); // Remove the class after the animation duration (1 second)
