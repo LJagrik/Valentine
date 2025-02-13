@@ -36,17 +36,18 @@
     font-size: 3em;
     position: fixed;
     top: 50%;
-    left: 50%; 
+    left: 50%;
     opacity: 0;
     transform: scale(0.5);
     animation: fadeIn 2s ease-in-out forwards, pulsate 2s infinite;
     transition: opacity 2s ease-in-out, transform 2s ease-in-out;
     z-index: 9999;
     pointer-events: none;
-    transform-origin: center center; 
+    transform-origin: center center;
     margin-left: -1.5em;
     margin-top: -1.5em;
     overflow: visible;
+    will-change: transform; /* Optimizing for the scaling */
 }
 
 .hide {
@@ -68,9 +69,10 @@
     font-size: 30px;
     opacity: 0;
     animation: heartFall 5s linear infinite;
-    position: absolute;
+    position: fixed;
     transition: opacity 2s ease-in-out, transform 2s ease-in-out;
     pointer-events: none;
+    will-change: transform; /* Optimizing for the scaling */
 }
 
 .heart.falling {
@@ -92,8 +94,8 @@ body {
     overflow: hidden; /* Prevent the screen from expanding when smileys pulse */
     background-size: cover;
     background-position: center center;
+    will-change: transform;
 }
-
 
 h1 {
     font-size: 5vw;
@@ -131,13 +133,14 @@ button {
     background: #ccc;
     color: black;
     position: absolute;
+    will-change: transform;
 }
 
 .hidden {
     visibility: hidden;
 }
 
-#smiley {
+#detail {
     font-size: 5em;
     margin-top: 20px;
 }
@@ -145,14 +148,12 @@ button {
 footer {
     font-family: 'Pacifico', cursive;
     position: fixed;
-    bottom: 0;
+    bottom: 1em;
     left: 0;
     width: 100%;
     text-align: center;
     font-size: 1.2em;
     color: white;
-    padding: 10px;
-    z-index: 100000000;
 }
 
 @keyframes rotateButton {
@@ -166,4 +167,34 @@ footer {
 
 #yes.rotated {
     animation: rotateButton 1s ease-in-out forwards;
+}
+
+@keyframes confettiBurst {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2) translate(var(--x), var(--y));
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #ff4081;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 1;
+    animation: confettiBurst 1s ease-out forwards;
+}
+
+.confetti:nth-child(even) {
+    background-color: #ff7eb3;
+}
+
+.confetti:nth-child(odd) {
+    background-color: #ff3d68;
 }

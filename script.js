@@ -53,7 +53,7 @@ noBtn.addEventListener("click", () => {
 });
 
 yesBtn.addEventListener("click", () => {
-    smiley.classList.remove("hidden");
+    detail.classList.remove("hidden");
 
     if (audio.paused) {
         audio.play();
@@ -67,6 +67,9 @@ yesBtn.addEventListener("click", () => {
     setTimeout(() => {
         yesBtn.classList.remove("rotated");
     }, 1000); // Remove the class after the animation duration (1 second)
+
+    // Trigger confetti animation
+    createConfetti();
 
     function createSmiley() {
         const newSmiley = document.createElement("div");
@@ -96,7 +99,7 @@ yesBtn.addEventListener("click", () => {
             setTimeout(() => {
                 newSmiley.remove();
             }, 2000); // Wait for fade-out animation to complete before removal
-        }, 10000);  // Smiley disappears after 10 seconds
+        }, 8000);  // Smiley disappears after 10 seconds
     }
 
     smileyInterval = setInterval(createSmiley, 750);  // Create a new smiley every 3/4 second
@@ -104,6 +107,48 @@ yesBtn.addEventListener("click", () => {
     // Start heart rain after 5s
     setTimeout(startHeartRain, 5000);
 });
+
+function createConfetti() {
+    const confettiCount = 30; // Number of confetti particles
+    const buttonRect = yesBtn.getBoundingClientRect();
+    const buttonCenterX = buttonRect.left + buttonRect.width / 2;
+    const buttonCenterY = buttonRect.top + buttonRect.height / 2;
+
+    // Color array for confetti
+    const colors = [
+        '#ff4081', '#ff7eb3', '#ff3d68', '#36cfc9', '#ffbb33', '#f5222d', '#52c41a', '#13c2c2', '#722ed1'
+    ];
+
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        // Randomly generate directions and sizes for each confetti
+        const angle = Math.random() * 360;
+        const distance = Math.random() * 200 + 100;
+        const confettiX = Math.cos(angle) * distance;
+        const confettiY = Math.sin(angle) * distance;
+
+        // Set custom CSS properties for translation values to animate outwards
+        confetti.style.setProperty('--x', `${confettiX}px`);
+        confetti.style.setProperty('--y', `${confettiY}px`);
+
+        // Randomize the confetti color
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.backgroundColor = randomColor;
+
+        // Position confetti at the button's center
+        confetti.style.top = `${buttonCenterY}px`;
+        confetti.style.left = `${buttonCenterX}px`;
+
+        document.body.appendChild(confetti);
+
+        // Remove confetti after animation ends
+        setTimeout(() => {
+            confetti.remove();
+        }, 1000); // Remove confetti after animation duration
+    }
+}
 
 function startHeartRain() {
     if (heartRainActive) return;
