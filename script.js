@@ -2,7 +2,7 @@ const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 const smiley = document.getElementById("smiley");
 const audio = document.getElementById("audio");
-const smileyArray = ["🥰🌹", "💌", "🌷🌹", "🌹", "🥰", "💕", "✨", "🌸"];
+const smileyArray = ["🥰🌹", "💌", "🌷🌹", "🌹", "🥰", "💕", "💓💝", "✨", "🌸"];
 
 let heartRainInterval;
 let heartRainActive = false;
@@ -33,7 +33,7 @@ function placeNoButton() {
     y = Math.min(Math.max(y, 0), window.innerHeight - 50);
 
     if (y > window.innerHeight - 50) {
-        y = window.innerHeight - 50;
+        y = window.innerHeight - 100;
     }
 
     noBtn.style.position = "absolute";
@@ -81,10 +81,10 @@ yesBtn.addEventListener("click", () => {
             setTimeout(() => {
                 newSmiley.remove();
             }, 2000); // Wait for fade-out animation to complete before removal
-        }, 10000);  // Smiley disappears after 10 seconds
+        }, 7500);  // Smiley disappears after 7.5 seconds
     }
 
-    smileyInterval = setInterval(createSmiley, 1000);  // Create a new smiley every second
+    smileyInterval = setInterval(createSmiley, 750);  // Create a new smiley every 3/4 second
 
     // Start heart rain after 5s
     setTimeout(startHeartRain, 5000);
