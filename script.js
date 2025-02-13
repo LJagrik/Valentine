@@ -3,14 +3,27 @@ const yesBtn = document.getElementById("yes");
 const smiley = document.getElementById("smiley");
 const audio = document.getElementById("audio");
 const noSound = document.getElementById("no-sound");
+const songTitle = document.getElementById("songTitle");
 const smileyArray = ["🥰🌹", "💌", "🌷🌹", "🌹", "🥰", "💕", "💓💝", "✨", "🌸"];
 const audioFiles = [
     "https://mysound.ge/uploads/tracks/621131775_918713962_433313246.mp3",
     "https://cdn1.suno.ai/980a6142-8647-4f4a-8f17-ca9fa0af3795.mp3",
     "https://cdn1.suno.ai/e6bf5177-5732-49cc-86db-d228d5c270fc.mp3",
     "https://cdn1.suno.ai/0fc3626d-2315-4bb8-9601-eb2f09daf2b9.mp3",
-    "https://cdn1.suno.ai/9fd07bfb-789a-48d4-81b3-d02afb562e6b.mp3"
-]
+    "https://cdn1.suno.ai/9fd07bfb-789a-48d4-81b3-d02afb562e6b.mp3",
+    "https://cdn1.suno.ai/8d31995d-7044-4f27-affe-973f6da7b4f3.mp3",
+    "https://cdn1.suno.ai/89131365-39e1-4088-bd89-27ba343e3284.mp3"
+];
+
+const songNames = [
+    "1 - Careless Whisper",
+    "2 - She Got Me Now",
+    "3 - Oh My Lord I'd Die For Ya",
+    "4 - Viktoria (But I Dont Like Her Smokeless Cigarettes)",
+    "5 - I've Always Adored Ya",
+    "6 - Vicky Is So Fire",
+    "7 - Echoes In The night"
+];
 
 let heartRainInterval;
 let heartRainActive = false;
@@ -53,7 +66,7 @@ function placeNoButton() {
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
 }
-
+placeNoButton();
 noBtn.addEventListener("mouseenter", placeNoButton);
 noBtn.addEventListener("click", placeNoButton);
 noBtn.addEventListener("mouseenter", () => {
@@ -70,9 +83,11 @@ yesBtn.addEventListener("click", () => {
     if (isPlaying) {
         // If audio is playing, pause it
         audio.pause();
+        songTitle.textContent = "No audio playing";
     } else {
         // If audio is paused, load and play the next track
         audio.src = audioFiles[currentAudioIndex];
+        songTitle.textContent = `Now Playing: ${songNames[currentAudioIndex]}`;
         audio.play();
         currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length; // Move to next track for next click
     }

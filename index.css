@@ -198,3 +198,17 @@ footer {
 .confetti:nth-child(odd) {
     background-color: #ff3d68;
 }
+
+#songTitle {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
