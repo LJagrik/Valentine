@@ -4,7 +4,7 @@ const smiley = document.getElementById("smiley");
 const audio = document.getElementById("audio");
 const noSound = document.getElementById("no-sound");
 const songTitle = document.getElementById("songTitle");
-const smileyArray = ["🥰🌹", "💌", "🌷🌹", "🌹", "🥰", "💕", "💓💝", "✨", "🌸"];
+const smileyArray = ["🥰🌹", "💌", "🌷🌹", "🌹", "🥰", "💕", "💓💝", "✨", "🌸", "💓", "💮", "👉👈", "💝", "😘"];
 const audioFiles = [
     "https://mysound.ge/uploads/tracks/621131775_918713962_433313246.mp3",
     "https://cdn1.suno.ai/980a6142-8647-4f4a-8f17-ca9fa0af3795.mp3",
