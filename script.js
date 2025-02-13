@@ -4,12 +4,21 @@ const smiley = document.getElementById("smiley");
 const audio = document.getElementById("audio");
 const noSound = document.getElementById("no-sound");
 const smileyArray = ["🥰🌹", "💌", "🌷🌹", "🌹", "🥰", "💕", "💓💝", "✨", "🌸"];
+const audioFiles = [
+    "https://mysound.ge/uploads/tracks/621131775_918713962_433313246.mp3",
+    "https://cdn1.suno.ai/980a6142-8647-4f4a-8f17-ca9fa0af3795.mp3",
+    "https://cdn1.suno.ai/e6bf5177-5732-49cc-86db-d228d5c270fc.mp3",
+    "https://cdn1.suno.ai/0fc3626d-2315-4bb8-9601-eb2f09daf2b9.mp3"
+]
 
 let heartRainInterval;
 let heartRainActive = false;
 let smileyInterval;
 let smileys = [];  // Array to store all smiley elements
+noSound.volume = 0.15;
 audio.volume = 0.3;
+let currentAudioIndex = 0;
+let isPlaying = false;
 
 function placeNoButton() {
     let x, y;
@@ -57,11 +66,19 @@ noBtn.addEventListener("click", () => {
 yesBtn.addEventListener("click", () => {
     detail.classList.remove("hidden");
 
-    if (audio.paused) {
-        audio.play();
-    } else {
+    if (isPlaying) {
+        // If audio is playing, pause it
         audio.pause();
+    } else {
+        // If audio is paused, load and play the next track
+        audio.src = audioFiles[currentAudioIndex];
+        audio.play();
+        currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length; // Move to next track for next click
     }
+
+    // Toggle the play state
+    isPlaying = !isPlaying;
+
 
     yesBtn.classList.add("rotated");
 
@@ -116,6 +133,8 @@ yesBtn.addEventListener("click", () => {
     // Start heart rain after 5s
     setTimeout(startHeartRain, 5000);
 });
+
+audio.addEventListener("ended", playNextAudio);
 
 function createConfetti() {
     const confettiCount = 30; // Number of confetti particles
