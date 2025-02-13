@@ -78,7 +78,6 @@ body {
     flex-direction: column;
     height: 100vh;
     background: linear-gradient(135deg, #ff758c, #ff7eb3, #ff3d68);
-    
     color: white;
     text-align: center;
     position: relative;
@@ -137,7 +136,7 @@ button {
 
 footer {
     font-family: 'Pacifico', cursive;
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     width: 100%;
     text-align: center;
