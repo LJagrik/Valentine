@@ -2,6 +2,7 @@ const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 const smiley = document.getElementById("smiley");
 const audio = document.getElementById("audio");
+const noSound = document.getElementById("no-sound");
 const smileyArray = ["🥰🌹", "💌", "🌷🌹", "🌹", "🥰", "💕", "💓💝", "✨", "🌸"];
 
 let heartRainInterval;
@@ -30,7 +31,7 @@ function placeNoButton() {
     } while (attempts < maxAttempts);
 
     x = Math.min(Math.max(x, 0), window.innerWidth - 100);
-    y = Math.min(Math.max(y, 0), window.innerHeight - 50);
+    y = Math.min(Math.max(y, 0), window.innerHeight - 150);
 
     if (y > window.innerHeight - 50) {
         y = window.innerHeight - 100;
@@ -43,6 +44,13 @@ function placeNoButton() {
 
 noBtn.addEventListener("mouseenter", placeNoButton);
 noBtn.addEventListener("click", placeNoButton);
+noBtn.addEventListener("mouseenter", () => {
+    noSound.play(); // Play sound on hover
+});
+
+noBtn.addEventListener("click", () => {
+    noSound.play(); // Play sound on click
+});
 
 yesBtn.addEventListener("click", () => {
     smiley.classList.remove("hidden");
@@ -81,7 +89,7 @@ yesBtn.addEventListener("click", () => {
             setTimeout(() => {
                 newSmiley.remove();
             }, 2000); // Wait for fade-out animation to complete before removal
-        }, 7500);  // Smiley disappears after 7.5 seconds
+        }, 1000);  // Smiley disappears after 7.5 seconds
     }
 
     smileyInterval = setInterval(createSmiley, 750);  // Create a new smiley every 3/4 second
