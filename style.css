@@ -74,8 +74,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     flex-direction: column;
+    height: 100vh;
     background: linear-gradient(135deg, #ff758c, #ff7eb3, #ff3d68);
     font-family: Arial, sans-serif;
     color: white;
@@ -88,9 +88,11 @@ body {
 
 
 h1 {
-    font-size: 3em;
-    margin-bottom: 30px;
+    font-size: 4vw; /* Prispôsobuje veľkosť textu podľa šírky obrazovky */
+    margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .buttons {
