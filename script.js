@@ -77,6 +77,13 @@ noBtn.addEventListener("click", () => {
     noSound.play(); // Play sound on click
 });
 
+function playNextAudio() {
+    audio.src = audioFiles[currentAudioIndex];
+    songTitle.textContent = `Now Playing: ${songNames[currentAudioIndex]}`;
+    audio.play();
+    currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length; // Move to next track for next click
+};
+
 yesBtn.addEventListener("click", () => {
     detail.classList.remove("hidden");
 
@@ -86,10 +93,7 @@ yesBtn.addEventListener("click", () => {
         songTitle.textContent = "";
     } else {
         // If audio is paused, load and play the next track
-        audio.src = audioFiles[currentAudioIndex];
-        songTitle.textContent = `Now Playing: ${songNames[currentAudioIndex]}`;
-        audio.play();
-        currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length; // Move to next track for next click
+        playNextAudio();
     }
 
     // Toggle the play state
