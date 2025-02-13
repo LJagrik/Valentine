@@ -9,6 +9,7 @@ let heartRainInterval;
 let heartRainActive = false;
 let smileyInterval;
 let smileys = [];  // Array to store all smiley elements
+audio.volume = 0.3;
 
 function placeNoButton() {
     let x, y;
