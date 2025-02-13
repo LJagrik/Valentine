@@ -158,7 +158,7 @@ footer {
     font-size: 1.2em;
     color: white;
     bottom: 0; /* Set to 0 to make sure it stays at the bottom */
-    padding: 1.5em; /* Add some padding for mobile */
+    padding: 6em; /* Add some padding for mobile */
     box-sizing: border-box; /* Ensure padding doesn't overflow */
 }
 
