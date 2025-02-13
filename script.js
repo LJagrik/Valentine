@@ -89,7 +89,7 @@ yesBtn.addEventListener("click", () => {
             setTimeout(() => {
                 newSmiley.remove();
             }, 2000); // Wait for fade-out animation to complete before removal
-        }, 1000);  // Smiley disappears after 7.5 seconds
+        }, 10000);  // Smiley disappears after 10 seconds
     }
 
     smileyInterval = setInterval(createSmiley, 750);  // Create a new smiley every 3/4 second
