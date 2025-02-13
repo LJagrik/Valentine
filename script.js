@@ -104,7 +104,6 @@ yesBtn.addEventListener("click", () => {
     // Toggle the play state
     isPlaying = !isPlaying;
 
-
     yesBtn.classList.add("rotated");
 
     setTimeout(() => {
@@ -119,6 +118,9 @@ yesBtn.addEventListener("click", () => {
         smiley.remove();
     });
     smileys = [];  // Reset the smiley array
+
+    // Clear any existing smiley interval
+    clearInterval(smileyInterval);
 
     function createSmiley() {
         const newSmiley = document.createElement("div");
@@ -149,14 +151,15 @@ yesBtn.addEventListener("click", () => {
             setTimeout(() => {
                 newSmiley.remove();
             }, 2000); // Wait for fade-out animation to complete before removal
-        }, 8000);  // Smiley disappears after 10 seconds
+        }, 8000);  // Smiley disappears after 8 seconds
     }
 
-    smileyInterval = setInterval(createSmiley, 750);  // Create a new smiley every 3/4 second
+    smileyInterval = setInterval(createSmiley, 250);  // Create a new smiley every 1/4 second
 
     // Start heart rain after 5s
     setTimeout(startHeartRain, 5000);
 });
+
 
 audio.addEventListener("ended", playNextAudio);
 
