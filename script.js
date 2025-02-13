@@ -8,7 +8,8 @@ const audioFiles = [
     "https://mysound.ge/uploads/tracks/621131775_918713962_433313246.mp3",
     "https://cdn1.suno.ai/980a6142-8647-4f4a-8f17-ca9fa0af3795.mp3",
     "https://cdn1.suno.ai/e6bf5177-5732-49cc-86db-d228d5c270fc.mp3",
-    "https://cdn1.suno.ai/0fc3626d-2315-4bb8-9601-eb2f09daf2b9.mp3"
+    "https://cdn1.suno.ai/0fc3626d-2315-4bb8-9601-eb2f09daf2b9.mp3",
+    "https://cdn1.suno.ai/9fd07bfb-789a-48d4-81b3-d02afb562e6b.mp3"
 ]
 
 let heartRainInterval;
