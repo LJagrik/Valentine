@@ -61,6 +61,13 @@ yesBtn.addEventListener("click", () => {
         audio.pause();
     }
 
+    yesBtn.classList.add("rotated");
+
+    // After the animation is done, you can remove the class to reset for the next click
+    setTimeout(() => {
+        yesBtn.classList.remove("rotated");
+    }, 1000); // Remove the class after the animation duration (1 second)
+
     function createSmiley() {
         const newSmiley = document.createElement("div");
         const randomSmiley = smileyArray[Math.floor(Math.random() * smileyArray.length)];
