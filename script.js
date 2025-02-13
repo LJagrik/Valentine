@@ -12,7 +12,9 @@ const audioFiles = [
     "https://cdn1.suno.ai/0fc3626d-2315-4bb8-9601-eb2f09daf2b9.mp3",
     "https://cdn1.suno.ai/9fd07bfb-789a-48d4-81b3-d02afb562e6b.mp3",
     "https://cdn1.suno.ai/8d31995d-7044-4f27-affe-973f6da7b4f3.mp3",
-    "https://cdn1.suno.ai/89131365-39e1-4088-bd89-27ba343e3284.mp3"
+    "https://cdn1.suno.ai/89131365-39e1-4088-bd89-27ba343e3284.mp3",
+    "https://cdn1.suno.ai/ac84d3c2-d901-4786-8675-306b9761ef6d.mp3",
+    "https://cdn1.suno.ai/fb1211a9-63c6-4880-8ea5-22a28f2b0a9f.mp3"
 ];
 
 const songNames = [
@@ -22,7 +24,9 @@ const songNames = [
     "4 - Viktoria (But I Dont Like Her Smokeless Cigarettes)",
     "5 - I've Always Adored Ya",
     "6 - Vicky Is So Fire",
-    "7 - Echoes In The night"
+    "7 - Echoes In The night",
+    "8 - She My Viktoria",
+    "9 - Stole My Mind"
 ];
 
 let heartRainInterval;
@@ -80,6 +84,7 @@ noBtn.addEventListener("click", () => {
 function playNextAudio() {
     audio.src = audioFiles[currentAudioIndex];
     songTitle.textContent = `Now Playing: ${songNames[currentAudioIndex]}`;
+    audio.volume = 0.3;
     audio.play();
     currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length; // Move to next track for next click
 };
