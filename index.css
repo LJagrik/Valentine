@@ -34,11 +34,19 @@
 
 .smiley {
     font-size: 3em;
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%; 
     opacity: 0;
     transform: scale(0.5);
-    animation: fadeIn 2s ease-in-out forwards, pulsate 2s infinite; /* Pulsating effect */
+    animation: fadeIn 2s ease-in-out forwards, pulsate 2s infinite;
     transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+    z-index: 9999;
+    pointer-events: none;
+    transform-origin: center center; 
+    margin-left: -1.5em;
+    margin-top: -1.5em;
+    overflow: visible;
 }
 
 .hide {
@@ -81,14 +89,14 @@ body {
     color: white;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Prevent the screen from expanding when smileys pulse */
     background-size: cover;
     background-position: center center;
 }
 
 
 h1 {
-    font-size: 5vw; /* Prispôsobuje veľkosť textu podľa šírky obrazovky */
+    font-size: 5vw;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     line-height: 1.2;
@@ -126,7 +134,7 @@ button {
 }
 
 .hidden {
-    display: none;
+    visibility: hidden;
 }
 
 #smiley {
@@ -137,12 +145,14 @@ button {
 footer {
     font-family: 'Pacifico', cursive;
     position: fixed;
-    bottom: 10px;
+    bottom: 0;
+    left: 0;
     width: 100%;
     text-align: center;
     font-size: 1.2em;
     color: white;
     padding: 10px;
+    z-index: 100000000;
 }
 
 @keyframes rotateButton {

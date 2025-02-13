@@ -76,7 +76,7 @@ yesBtn.addEventListener("click", () => {
 
         const smileyHeight = 50;
         const smileyWidth = 50;
-        const randomY = Math.random() * (window.innerHeight - smileyHeight);
+        const randomY = Math.random() * (window.innerHeight - smileyHeight) - 25;
         const randomX = Math.random() * (window.innerWidth - smileyWidth);
 
         newSmiley.style.top = `${randomY}px`;
