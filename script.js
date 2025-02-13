@@ -83,7 +83,7 @@ yesBtn.addEventListener("click", () => {
     if (isPlaying) {
         // If audio is playing, pause it
         audio.pause();
-        songTitle.textContent = "No audio playing";
+        songTitle.textContent = "";
     } else {
         // If audio is paused, load and play the next track
         audio.src = audioFiles[currentAudioIndex];
