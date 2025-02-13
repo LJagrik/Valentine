@@ -96,6 +96,7 @@ body {
     background-size: cover;
     background-position: center center;
     will-change: transform;
+    padding-bottom: -10em; /* Add padding to avoid footer overlap */
 }
 
 h1 {
@@ -151,12 +152,14 @@ button {
 footer {
     font-family: 'Pacifico', cursive;
     position: fixed;
-    bottom: 1em;
     left: 0;
     width: 100%;
     text-align: center;
     font-size: 1.2em;
     color: white;
+    bottom: 0; /* Set to 0 to make sure it stays at the bottom */
+    padding: 1.5em; /* Add some padding for mobile */
+    box-sizing: border-box; /* Ensure padding doesn't overflow */
 }
 
 @keyframes rotateButton {
